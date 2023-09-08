@@ -9,7 +9,6 @@ export default class ExchangeRate {
         throw new Error(errorMessage);
       }
       return moneyResponse;
-    
     } catch(error) {
       return error;
     }
