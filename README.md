@@ -29,7 +29,7 @@ The Currency Exchange API App is a user-friendly web application that enables us
     ```
 2. After successfully cloning down the repository, navigate to the **'sep82023_currencyexchangeapi'** directory, if the file is located in your desktop, enter the following command:
       ```
-       cd projectname_project
+       cd sep82023_currencyexchangeapi
 3. In the root directory of `sep82023_currencyexchangeapi`, enter the following command: `touch .env`. This file is where you will store your API key from [ExchangeRate API](https://www.exchangerate-api.com/).
 
 4. If you don't already have an API key for [ExchangeRate API](https://www.exchangerate-api.com/), create an account and follow their simple directions to have one generated. This is required in order for the function to call on the API in this project.
