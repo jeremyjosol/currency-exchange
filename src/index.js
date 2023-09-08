@@ -4,22 +4,31 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ExchangeRate from './exchangerate.js';
 
 async function getMoney(amount) {
-  const response = await ExchangeRate.getMoney(amount);
-  if (response) {
-    outputMoney(response);
-  } else {
-    outputError(response);
+  try {
+    const response = await ExchangeRate.getMoney(amount);
+  
+    if (response && response.result === "success") {
+      outputMoney(response);
+  }   else {
+      outputError(response);
+  }
+} catch (error) {
+  outputError(error);
   }
 }
 
 // UI Logic
 
 function outputMoney(response) {
-  document.querySelector('#showConversion').innerHTML = `Amount ${response.result}`;
+  document.querySelector('#showConversion').innerHTML = `Amount ${response.conversion_result}`;
 }
 
 function outputError(error) {
-  document.querySelector('#showConversion').innerHTML = `There was an error for ${error.result}`;
+  if (error.result === "error") {
+  document.querySelector('#showConversion').innerHTML = `${error.result} Code: ${error['error-type']}`;
+  } else {
+    document.querySelector('#showConversion').innerHTML = "An unknown error has occurred. Please refer to the documentation.";
+  }
 }
 
 function handleFormConversion(event) {
