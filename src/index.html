@@ -6,11 +6,11 @@
     <h1 class="title"><img class="exchange-rate" src="https://app.exchangerate-api.com/img/logo-medium-invert.png"></h1>
     <form>
       <label for="amount"></label>
-      <input class="form-control" id="amount" type="text" name="amount" placeholder="">
+      <input class="form-control" id="amount" type="number" name="amount" placeholder="Enter amount">
       <label for="usd"></label>
       <input class="form-control" id="usd" type="text" name="usd" value="USD" readonly>
       <label for="foreigncurrency"></label>
-      <input class="form-control" id="foreigncurrency" type="text" name="foreigncurrency">
+      <input class="form-control" id="foreigncurrency" type="text" name="foreigncurrency" value="PHP">
       <button type="submit" class="btn btn-success" id="conversion">Convert</button>
     </form>
     <p id="showConversion"></p>

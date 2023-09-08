@@ -22,7 +22,7 @@ async function getMoney(currencyValue, usDollar, foreignCurrency) {
 // UI Logic
 
 function convertCurrency(response, currencyValue, usDollar, foreignCurrency) {
-  document.getElementById("showConversion").innerHTML = `${usDollar} $${currencyValue} = <br />
+  document.getElementById("showConversion").innerHTML = `${usDollar} $${currencyValue} <br /> = <br />
   ${foreignCurrency} ${currencyConverter(currencyValue, response.conversion_rates[foreignCurrency])}`;
 }
 
