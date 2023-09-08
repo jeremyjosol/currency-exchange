@@ -7,7 +7,7 @@ import {currencyConverter} from './js/utility.js';
 async function getMoney(currencyValue, usDollar, foreignCurrency) {
   const response = await ExchangeRate.getMoney(usDollar, foreignCurrency);
   const validCurrency = Object.keys(response.conversion_rates);
-  // UI Logic
+
   if (response.result === "error") {
     outputError(response);
   } else if (isNaN(currencyValue) || currencyValue < 0) {
