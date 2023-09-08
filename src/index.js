@@ -3,9 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import css directory here
 import ExchangeRate from './exchangerate.js';
 
-async function getMoney(compare, amount) {
+async function getMoney(baseCurrency) {
   try {
-    const response = await ExchangeRate.getMoney(compare, amount);
+    const response = await ExchangeRate.getMoney(baseCurrency);
   
     if (!response) {
       outputError(response);
@@ -20,24 +20,22 @@ async function getMoney(compare, amount) {
 // UI Logic
 
 function outputMoney(response) {
-  if (response.conversion_result) {
-    document.querySelector('#showConversion').innerHTML = `Amount: ${response.conversion_result.toFixed(2)}`;
+  if (response.conversion_rates) {
+    document.querySelector('#showConversion').innerHTML = `Amount: ${response.conversion_rates.AED}`;
   } else {
   document.querySelector('#showConversion').innerHTML = `Please enter a correct currency.`;
   }
 }
 
 function outputError(error) {
-  document.querySelector('#showConversion').innerHTML = `An error has occurred. Please try again. ${error['error-type']}`;
+  document.querySelector('#showConversion').innerHTML = `An error has occurred: ${error}`;
 }
 
 function handleFormConversion(event) {
   event.preventDefault();
-  const amount = document.querySelector('#amount').value;
+  const baseCurrency = document.querySelector('#amount').value;
   document.querySelector('#amount').value = null;
-  const compare = document.querySelector('#compare').value;
-  document.querySelector('#amount').value = null;
-  getMoney(compare, amount);
+  getMoney(baseCurrency);
 }
 
 window.addEventListener("load", function() {
