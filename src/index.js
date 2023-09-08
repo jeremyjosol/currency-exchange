@@ -3,9 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import css directory here
 import ExchangeRate from './exchangerate.js';
 
-async function getMoney(amount) {
+async function getMoney(compare, amount) {
   try {
-    const response = await ExchangeRate.getMoney(amount);
+    const response = await ExchangeRate.getMoney(compare, amount);
   
     if (response && response.result === "success") {
       outputMoney(response);
@@ -35,7 +35,9 @@ function handleFormConversion(event) {
   event.preventDefault();
   const amount = document.querySelector('#amount').value;
   document.querySelector('#amount').value = null;
-  getMoney(amount);
+  const compare = document.querySelector('#compare').value;
+  document.querySelector('#amount').value = null;
+  getMoney(compare, amount);
 }
 
 window.addEventListener("load", function() {

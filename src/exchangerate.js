@@ -1,7 +1,7 @@
 export default class ExchangeRate {
-  static async getMoney(amount) {
+  static async getMoney(compare, amount) {
     try {
-      const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/EUR/GBP/${amount}`);
+      const response = await fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/pair/USD/${compare}/${amount}`);
       const moneyResponse = await response.json();
 
       if (!response.ok) {
