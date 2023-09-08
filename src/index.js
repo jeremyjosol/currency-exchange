@@ -6,13 +6,12 @@ import ExchangeRate from './exchangerate.js';
 async function getMoney(baseCurrency) {
   try {
     const response = await ExchangeRate.getMoney(baseCurrency);
-  
     if (!response) {
       outputError(response);
   }   else {
       outputMoney(response);
   }
-} catch (error) {
+  } catch (error) {
   outputError(error);
   }
 }
@@ -20,10 +19,11 @@ async function getMoney(baseCurrency) {
 // UI Logic
 
 function outputMoney(response) {
-  if (response.conversion_rates) {
-    document.querySelector('#showConversion').innerHTML = `Amount: ${response.conversion_rates.AED}`;
-  } else {
+  const validCurrencyArray = Object.keys(response.conversion_rates);
+  if (!validCurrencyArray.includes(response.conversion_rates_USD)) {
   document.querySelector('#showConversion').innerHTML = `Please enter a correct currency.`;
+  } else {
+      document.querySelector('#showConversion').innerHTML = `Amount: ${response.conversion_rates.AED}`;
   }
 }
 
