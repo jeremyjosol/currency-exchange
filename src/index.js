@@ -7,10 +7,10 @@ async function getMoney(compare, amount) {
   try {
     const response = await ExchangeRate.getMoney(compare, amount);
   
-    if (response && response.result === "success") {
-      outputMoney(response);
-  }   else {
+    if (!response) {
       outputError(response);
+  }   else {
+      outputMoney(response);
   }
 } catch (error) {
   outputError(error);
@@ -20,15 +20,15 @@ async function getMoney(compare, amount) {
 // UI Logic
 
 function outputMoney(response) {
-  document.querySelector('#showConversion').innerHTML = `Amount ${response.conversion_result}`;
+  if (response.conversion_result) {
+    document.querySelector('#showConversion').innerHTML = `Amount: ${response.conversion_result.toFixed(2)}`;
+  } else {
+  document.querySelector('#showConversion').innerHTML = `Please enter a correct currency.`;
+  }
 }
 
 function outputError(error) {
-  if (error.result === "error") {
-  document.querySelector('#showConversion').innerHTML = `${error.result} Code: ${error['error-type']}`;
-  } else {
-    document.querySelector('#showConversion').innerHTML = "An unknown error has occurred. Please refer to the documentation.";
-  }
+  document.querySelector('#showConversion').innerHTML = `An error has occurred. Please try again. ${error['error-type']}`;
 }
 
 function handleFormConversion(event) {
