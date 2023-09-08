@@ -5,7 +5,7 @@ import ExchangeRate from './exchangerate.js';
 
 async function getMoney(amount) {
   const response = await ExchangeRate.getMoney(amount);
-  if (response.ok) {
+  if (response) {
     outputMoney(response);
   } else {
     outputError(response);
@@ -15,11 +15,11 @@ async function getMoney(amount) {
 // UI Logic
 
 function outputMoney(response) {
-  document.querySelector('#showConversion').innerText = `${response.result}`;
+  document.querySelector('#showConversion').innerHTML = `Amount ${response.result}`;
 }
 
 function outputError(error) {
-  document.querySelector('showConversion').innerText = `There was an error for ${error}`;
+  document.querySelector('#showConversion').innerHTML = `There was an error for ${error.result}`;
 }
 
 function handleFormConversion(event) {
