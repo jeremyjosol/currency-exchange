@@ -1,0 +1,83 @@
+body {
+  background-image: linear-gradient(to right, rgb(89, 86, 152), rgb(10, 5, 95));
+  font-family: 'Open Sans', sans-serif;
+}
+
+.title {
+  color: rgba(255, 255, 255, 0.65);
+  margin: auto;
+  width: 350px;
+  padding: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 18px;
+}
+
+.container {
+  margin: auto;
+  margin-top: 120px;
+  margin-bottom: 120px;
+  padding: auto;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  width: 420px;
+  background-color: rgb(0, 0, 0, 0.07);
+  /* opacity: 80%; */
+  color: white;
+  text-align: center;
+  border-radius: 50px;
+  box-shadow: 0px 0px 1px;
+}
+
+#amount {
+  margin: auto;
+  margin-top: 25px;
+  width: 150px;
+}
+
+.form-control {
+  margin: auto;
+  margin-top: 10px;
+  width: 60px;
+}
+
+.btn-success {
+  margin: auto;
+  margin-top: 20px;
+  width: 100px;
+}
+
+.description {
+  width: 200px;
+  font-size: 12px;
+}
+
+.name {
+  background-color: rgb(0, 0, 0, 0.18);
+  margin: auto;
+  width: 228px;
+  padding: auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 15px;
+}
+
+.price {
+  background-color: rgb(0, 0, 0, 0.20);
+  margin: auto;
+  width: 125px;
+  padding: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+}
+
+.USD {
+  background-color: rgb(0, 0, 0, 0.20);
+  margin: auto;
+  width: 235px;
+  padding: auto;
+  padding-left: 2px;
+  padding-right: 2px;
+  border-radius: 15px;
+}
