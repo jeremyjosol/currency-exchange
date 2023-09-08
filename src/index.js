@@ -11,3 +11,24 @@ async function getMoney(amount) {
     outputError(response);
   }
 }
+
+// UI Logic
+
+function outputMoney(response) {
+  document.querySelector('#showConversion').innerText = `${response.result}`;
+}
+
+function outputError(error) {
+  document.querySelector('showConversion').innerText = `There was an error for ${error}`;
+}
+
+function handleFormConversion(event) {
+  event.preventDefault();
+  const amount = document.querySelector('#amount').value;
+  document.querySelector('#amount').value = null;
+  getMoney(amount);
+}
+
+window.addEventListener("load", function() {
+  document.querySelector('form').addEventListener("submit", handleFormConversion); 
+});
