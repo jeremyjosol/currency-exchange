@@ -8,7 +8,7 @@ async function getMoney(currencyValue, usDollar, foreignCurrency) {
   const response = await ExchangeRate.getMoney(usDollar, foreignCurrency);
   const validCurrency = Object.keys(response.conversion_rates);
   
-  if (!response) {
+  if (response.result === "error") {
     outputError(response);
   } else if (isNaN(currencyValue) || currencyValue < 0) {
     document.querySelector('#showConversion').innerText = "Please enter a valid number.";
@@ -30,7 +30,7 @@ function outputError(error) {
   document.getElementById("showConversion").innerText = `An error occurred: ${error}`;
 }
 
-function handleFormConversion(event) {
+function handleConversion(event) {
   event.preventDefault();
   const currencyValue = document.getElementById("amount").value;
   document.getElementById("amount").value = null;
@@ -41,5 +41,5 @@ function handleFormConversion(event) {
 }
 
 window.addEventListener("load", function () {
-  document.querySelector('form').addEventListener("submit", handleFormConversion);
+  document.querySelector('form').addEventListener("submit", handleConversion);
 });
