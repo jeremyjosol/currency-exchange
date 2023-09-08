@@ -10,6 +10,8 @@ async function getMoney(currencyValue, usDollar, foreignCurrency) {
   
   if (!response) {
     outputError(response);
+  } else if (isNaN(currencyValue) || currencyValue < 0) {
+    document.querySelector('#showConversion').innerText = "Please enter a valid number.";
   } else if (!validCurrency.includes(foreignCurrency)) {
     document.querySelector('#showConversion').innerText = "Enter a valid currency.";
   } else {
@@ -25,17 +27,14 @@ function convertCurrency(response, currencyValue, usDollar, foreignCurrency) {
 }
 
 function outputError(error) {
-  document.getElementById("showConversion").innerText = `An error occurred: ${error.errorMessage}`;
+  document.getElementById("showConversion").innerText = `An error occurred: ${error}`;
 }
 
 function handleFormConversion(event) {
   event.preventDefault();
-
   const currencyValue = document.getElementById("amount").value;
   document.getElementById("amount").value = null;
-
   const usDollar = document.getElementById("usd").value.toUpperCase();
-
   const foreignCurrency = document.getElementById("foreigncurrency").value.toUpperCase();
   document.getElementById("foreigncurrency").value = null;
   getMoney(currencyValue, usDollar, foreignCurrency);
