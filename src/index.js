@@ -35,7 +35,6 @@ function handleFormConversion(event) {
   document.getElementById("amount").value = null;
 
   const usDollar = document.getElementById("usd").value.toUpperCase();
-  document.getElementById("usd").value = null;
 
   const foreignCurrency = document.getElementById("foreigncurrency").value.toUpperCase();
   document.getElementById("foreigncurrency").value = null;
