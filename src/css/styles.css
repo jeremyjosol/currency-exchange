@@ -3,16 +3,6 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
-.title {
-  color: rgba(255, 255, 255, 0.65);
-  margin: auto;
-  width: 350px;
-  padding: auto;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-radius: 18px;
-}
-
 .container {
   margin: auto;
   margin-top: 120px;
@@ -47,37 +37,3 @@ body {
   width: 100px;
 }
 
-.description {
-  width: 200px;
-  font-size: 12px;
-}
-
-.name {
-  background-color: rgb(0, 0, 0, 0.18);
-  margin: auto;
-  width: 228px;
-  padding: auto;
-  padding-left: 5px;
-  padding-right: 5px;
-  border-radius: 15px;
-}
-
-.price {
-  background-color: rgb(0, 0, 0, 0.20);
-  margin: auto;
-  width: 125px;
-  padding: auto;
-  padding-left: 20px;
-  padding-right: 20px;
-  border-radius: 10px;
-}
-
-.USD {
-  background-color: rgb(0, 0, 0, 0.20);
-  margin: auto;
-  width: 235px;
-  padding: auto;
-  padding-left: 2px;
-  padding-right: 2px;
-  border-radius: 15px;
-}
