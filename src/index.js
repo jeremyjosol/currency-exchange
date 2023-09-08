@@ -11,9 +11,9 @@ async function getMoney(currencyValue, usDollar, foreignCurrency) {
   if (response.result === "error") {
     outputError(response);
   } else if (isNaN(currencyValue) || currencyValue < 0) {
-    document.querySelector('#showConversion').innerText = "Please enter a valid number.";
+    document.querySelector('#showConversion').innerHTML = "Please enter a valid number.";
   } else if (!validCurrency.includes(foreignCurrency)) {
-    document.querySelector('#showConversion').innerText = "Enter a valid currency.";
+    document.querySelector('#showConversion').innerHTML = "Enter a valid currency.";
   } else {
     convertCurrency(response, currencyValue, usDollar, foreignCurrency);
   }
@@ -22,8 +22,8 @@ async function getMoney(currencyValue, usDollar, foreignCurrency) {
 // UI Logic
 
 function convertCurrency(response, currencyValue, usDollar, foreignCurrency) {
-  document.getElementById("showConversion").innerHTML = `${usDollar} $${currencyValue} <br /> = <br />
-  ${foreignCurrency} ${currencyConverter(currencyValue, response.conversion_rates[foreignCurrency])}`;
+  document.getElementById("showConversion").innerHTML = `<h2>${usDollar} $${currencyValue}</h2>  <h3> = </h3>
+  <h2>${foreignCurrency} ${currencyConverter(currencyValue, response.conversion_rates[foreignCurrency])}</h2>`;
 }
 
 function outputError(error) {
