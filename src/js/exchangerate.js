@@ -5,7 +5,7 @@ export default class ExchangeRate {
       const moneyResponse = await response.json();
 
       if (!response.ok) {
-        const errorMessage = `An error has occurred. ${moneyResponse.error} ${moneyResponse.error['error-type']}`
+        const errorMessage = `An error has occurred. ${moneyResponse.error} ${moneyResponse.error['error-type']}`;
         throw new Error(errorMessage);
       }
       return moneyResponse;

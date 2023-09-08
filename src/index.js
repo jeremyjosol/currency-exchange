@@ -9,11 +9,11 @@ async function getMoney(currencyValue, usDollar, foreignCurrency) {
   const validCurrency = Object.keys(response.conversion_rates);
   
   if (!response) {
-      outputError(response);
+    outputError(response);
   } else if (!validCurrency.includes(foreignCurrency)) {
-      document.querySelector('#showConversion').innerText = "Enter a valid currency."
+    document.querySelector('#showConversion').innerText = "Enter a valid currency.";
   } else {
-      convertCurrency(response, currencyValue, usDollar, foreignCurrency);
+    convertCurrency(response, currencyValue, usDollar, foreignCurrency);
   }
 }
 
