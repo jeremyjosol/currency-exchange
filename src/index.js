@@ -13,7 +13,7 @@ async function getMoney(currencyValue, usDollar, foreignCurrency) {
   } else if (isNaN(currencyValue) || currencyValue < 0) {
     document.querySelector('#showConversion').innerHTML = `<p class="error">Please enter a valid number.</p>`;
   } else if (!validCurrency.includes(foreignCurrency)) {
-    document.querySelector('#showConversion').innerHTML = `<p class="error">Enter a valid currency.</p>`;
+    document.querySelector('#showConversion').innerHTML = `<p class="error">Please enter a valid currency.</p>`;
   } else {
     convertCurrency(response, currencyValue, usDollar, foreignCurrency);
   }
