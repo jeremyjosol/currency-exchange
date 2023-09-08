@@ -1,5 +1,5 @@
 body {
-  background-image: linear-gradient(to right, rgb(60, 182, 210), rgb(0, 159, 98));
+  background-image: linear-gradient(to right, rgb(60, 182, 210), rgb(0, 159, 98), pink);
   font-family: 'Open Sans', sans-serif;
   margin: auto;
 }
