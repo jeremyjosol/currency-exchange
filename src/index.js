@@ -1,7 +1,7 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import ExchangeRate from './js/exchangerate.js';
+import ExchangeRate from './js/ExchangeRate.js';
 import {currencyConverter} from './js/utility.js';
 
 async function getMoney(currencyValue, usDollar, foreignCurrency) {
@@ -11,15 +11,15 @@ async function getMoney(currencyValue, usDollar, foreignCurrency) {
 
     if (response.result === "error") {
       outputError(response);
-  } else if (isNaN(currencyValue) || currencyValue < 0) {
-    document.querySelector('#showConversion').innerHTML = `<p class="error">Please enter a valid number.</p>`;
-  } else if (!validCurrency.includes(foreignCurrency)) {
-    document.querySelector('#showConversion').innerHTML = `<p class="error">Please enter a valid currency.</p>`;
-  } else {
-    convertCurrency(response, currencyValue, usDollar, foreignCurrency);
-  }
-} catch(error) {
-  outputError("Please check the URL or API key and try again.");
+    } else if (isNaN(currencyValue) || currencyValue < 0) {
+      document.querySelector('#showConversion').innerHTML = `<p class="error">Please enter a valid number.</p>`;
+    } else if (!validCurrency.includes(foreignCurrency)) {
+      document.querySelector('#showConversion').innerHTML = `<p class="error">Please enter a valid currency.</p>`;
+    } else {
+      convertCurrency(response, currencyValue, usDollar, foreignCurrency);
+    }
+  } catch(error) {
+    outputError("Please check the URL or API key and try again.");
   }
 }
 
